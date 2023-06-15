@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise Tracker</title>
+
+  <link rel="stylesheet" href="Stylesheets/style.css">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+  <link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+  <!-- Add the CDN link for the DataTables stylesheet here -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top" style="float: right;">
+    <div class="container-fluid">
+      <a class="navbar-brand" id="navBrandID" href="#">
+        <img src="Images\ExerciseTrackerLogo.svg" alt="Exercise Tracker Logo" href="index.html" class="logo-image">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="bi bi-chevron-bar-left" style="color: slateblue;"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="padding-left : 150px;">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" id="navLinkID" aria-current="page">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="navLinkID">Nutrition</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="navLinkID">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" id="navLinkID" aria-current="page" href="#section1"><i
+                class="bi bi-share"></i></a>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link active" id="usernameHeader" onclick="location.href='#section1'"></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="fullpage" style="text-align: center;">
+    <div class="section">
+      <img src="Images/exercise-header-logo-thin-updated.svg" alt="Exercise header" id="exerciseHeaderLogo" style="padding-bottom: 30px;" />
+      <h1 style="font-size: 50px; margin: 20px"><b>Exercise Tracker</b></h1>
+      <div style="margin-bottom: 30px;">
+        <input type="text" id="fname" name="fname" placeholder="Enter your name" style="display:inline-block">
+        <button class="button" type="button" onclick="username();" >Let's Go!</button>
+      </div>
+      <a  id="whatIsExerciseTracker">What is exercise tracker?</a>
+    </div>
+
+
+    <div class="section">
+      <div class="container overflow-hidden">
+        <div class="row gx-5">
+          <h1 style="font-weight: bold; margin-bottom: 10px;" id="header">Let's Start Tracking!</h1>
+          <h5 style="margin-bottom: 50px;" id="header">Choose your level below:</h5>
+          <div class="col">
+                <div class="cardSection" onclick="location.href='#section3'" style="background-image: linear-gradient( rgb(255, 121, 121) , rgb(255, 255, 160));">
+                  <img src="Images\Running Man.svg" class="mainPageLogos" alt="Running Logo">
+                  <div class="container">
+                    <p class="poppins"><i class="bi bi-unlock" style="padding-right: 10px; padding-bottom: 20px;"></i>Unlocked</p>
+                    <h3 class="poppins"><b>Running</b></h3>
+                    <p class="poppins">Complete 10 km</p>
+                  </div>
+                </div>
+
+          </div>
+          <div class="col">
+              <div class="cardSection" style="background-image: linear-gradient( rgb(121, 255, 224) , rgb(160, 174, 255));">
+                <img src="Images\Cycling Man.svg" class="mainPageLogos" alt="Cycling Logo">
+                <div class="container">
+                  <p class="poppins"><i class="bi bi-lock" style="padding-right: 10px; padding-bottom: 20px;"></i>Locked</p>
+                  <h3 class="poppins"><b>Cycling</b></h3>
+                  <p class="poppins">Complete 20 km</p>
+                </div>
+              </div>
+
+          </div>
+          <div class="col">
+              <div class="cardSection" style="background-image: linear-gradient( rgb(226, 121, 255) , rgb(255, 160, 166));">
+                <img src="Images\Weightlifting Woman.svg" class="mainPageLogos" alt="Weightlifting Logo">
+                <div class="container">
+                  <p class="poppins"><i class="bi bi-lock" style="padding-right: 10px; padding-bottom: 20px;"></i>Locked</p>
+                  <h3 class="poppins"><b>Weightlifting</b></h3>
+                  <p class="poppins">Complete 5 hours</p>
+                </div>
+              </div>
+
+            </div>
+        </div>
+      </div>
+      <footer>
+        Copyright &copy;
+      </footer>
+    </div>
+
+
+    <div class="section">
+      <div class="container overflow-hidden">
+        <div class="row gx-5">
+          <h1 style="font-weight: bold; margin-bottom: 50px; color: #99aaed" id="header" ></h1>
+          <div class="col-6">
+            <div class="p-3  ">
+              <div class="row" style="font-size: 18px;">
+
+                <div id="runningDisplay" class="cardSection2" style="background-image: linear-gradient( rgb(255, 121, 121) , rgb(255, 255, 160)); height: 230px; width: 500px">
+                  <div class="row">
+                    <div class="col">
+                      <div class="container">
+                        <h3 class="poppins" style="padding-top: 50px;"><b>Running</b></h3>
+                        <p class="poppins">Complete 10 km</p>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <img src="Images\Running Man.svg" class="mainPageLogos" alt="Running Logo">
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <p style="margin-top: 50px; font-size: large; text-align: left;">
+                
+                  <div class="form-group">
+                    <label for="distance" style="font-size: 30px">Distance (km)</label>
+                    <input type="number" class="form-control" id="distance1" aria-describedby="emailHelp" min="0" max="100" placeholder="Enter Distance for Day 1">
+                    <input type="number" class="form-control" id="distance2" aria-describedby="emailHelp" min="0" max="100" placeholder="Enter Distance for Day 2">
+                    <input type="number" class="form-control" id="distance3" aria-describedby="emailHelp" min="0" max="100" placeholder="Enter Distance for Day 3">
+                    <input type="number" class="form-control" id="distance4" aria-describedby="emailHelp" min="0" max="100" placeholder="Enter Distance for Day 4">
+                    <input type="number" class="form-control" id="distance5" aria-describedby="emailHelp" min="0" max="100" placeholder="Enter Distance for Day 5">
+                    <input type="number" class="form-control" id="distance6" aria-describedby="emailHelp" min="0" max="100" placeholder="Enter Distance for Day 6">
+                    <input type="number" class="form-control" id="distance7" aria-describedby="emailHelp" min="0" max="100" placeholder="Enter Distance for Day 7">
+                    <input type="submit" value="Check your distance" class="button" style="margin-top: 10px" onclick="handleClick();">
+                  </div>
+              </p>
+
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="p-3  ">
+              <canvas id="DistanceDistribution" style="justify-content: center;"></canvas>
+            </div>
+            <div>
+              <button class="button" id="RunningSuccess" onclick="location.href='#section4'" style="display:none">
+                <div>Congratulations! You have completed the requirements.<br>
+                Click to go to next Exercise</div>
+              </button>
+              <button class="button" id="RunningFail" style="display:none">
+                <div>Unfortunately, you have not completed the requirements.</div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container overflow-hidden">
+        <div class="row gx-5">
+          <h1 style="font-weight: bold; margin-bottom: 10px;" id="header">Let's Start Tracking!</h1>
+          <h5 style="margin-bottom: 50px;" id="header">Choose your level below:</h5>
+          <div class="col">
+                <div class="cardSection"  style="background-image: linear-gradient( rgb(255, 121, 121) , rgb(255, 255, 160));">
+                  <img src="Images\Running Man.svg" class="mainPageLogos" alt="Running Logo">
+                  <div class="container">
+                    <p class="poppins"><i class="bi bi-check-square" style="padding-right: 10px; padding-bottom: 20px;"></i>Complete</p>
+                    <h3 class="poppins"><b>Running</b></h3>
+                    <p class="poppins">Complete 10 km</p>
+                  </div>
+                </div>
+
+          </div>
+          <div class="col">
+              <div class="cardSection" onclick="location.href='#section5'" style="background-image: linear-gradient( rgb(121, 255, 224) , rgb(160, 174, 255));">
+                <img src="Images\Cycling Man.svg" class="mainPageLogos" alt="Cycling Logo">
+                <div class="container">
+                  <p class="poppins"><i class="bi bi-unlock" style="padding-right: 10px; padding-bottom: 20px;"></i>Unlocked</p>
+                  <h3 class="poppins"><b>Cycling</b></h3>
+                  <p class="poppins">Complete 20 km</p>
+                </div>
+              </div>
+
+          </div>
+          <div class="col">
+              <div class="cardSection" style="background-image: linear-gradient( rgb(226, 121, 255) , rgb(255, 160, 166));">
+                <img src="Images\Weightlifting Woman.svg" class="mainPageLogos" alt="Weightlifting Logo">
+                <div class="container">
+                  <p class="poppins"><i class="bi bi-lock" style="padding-right: 10px; padding-bottom: 20px;"></i>Locked</p>
+                  <h3 class="poppins"><b>Weightlifting</b></h3>
+                  <p class="poppins">Complete 5 hours</p>
+                </div>
+              </div>
+
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="section">
+      <div class="container overflow-hidden">
+        <div class="row gx-5">
+          <h1 style="font-weight: bold; margin-bottom: 50px; color: #99aaed" id="header" ></h1>
+          <div class="col-6">
+            <div class="p-3  ">
+              <div class="row" style="font-size: 18px;">
+                <div id="cyclingDisplay" class="cardSection2" style="background-image: linear-gradient( rgb(121, 255, 224) , rgb(160, 174, 255)); height: 230px; width: 500px">
+                  <div class="row">
+                    <div class="col">
+                      <div class="container">
+                        <h3 class="poppins" style="padding-top: 50px;"><b>Cycling</b></h3>
+                        <p class="poppins">Complete 20 km</p>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <img src="Images\Cycling Man.svg" class="mainPageLogos" alt="Running Logo">
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <p style="margin-top: 50px; font-size: large; text-align: left;">
+                
+                  <div class="form-group">
+                    <label for="distance">Distance</label>
+                    <input type="number" class="form-control" id="distance8" aria-describedby="emailHelp" min="0" max="500" placeholder="Enter Distance for Day 1">
+                    <input type="number" class="form-control" id="distance9" aria-describedby="emailHelp" min="0" max="500" placeholder="Enter Distance for Day 2">
+                    <input type="number" class="form-control" id="distance10" aria-describedby="emailHelp" min="0" max="500" placeholder="Enter Distance for Day 3">
+                    <input type="number" class="form-control" id="distance11" aria-describedby="emailHelp" min="0" max="500" placeholder="Enter Distance for Day 4">
+                    <input type="number" class="form-control" id="distance12" aria-describedby="emailHelp" min="0" max="500" placeholder="Enter Distance for Day 5">
+                    <input type="number" class="form-control" id="distance13" aria-describedby="emailHelp" min="0" max="500" placeholder="Enter Distance for Day 6">
+                    <input type="number" class="form-control" id="distance14" aria-describedby="emailHelp" min="0" max="500" placeholder="Enter Distance for Day 7">
+                    <input type="submit" value="Check your distance" class="button" style="margin-top: 10px" onclick="handleClickCycling();">
+                  </div>
+              </p>
+
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="p-3  ">
+              <canvas id="DistanceDistribution2" style="justify-content: center;"></canvas>
+            </div>
+            <div>
+              <button class="button" id="CyclingSuccess" onclick="location.href='#section6'" style="display:none">
+                <div>Congratulations! You have completed the requirements.<br>
+                Click to go to next Exercise</div>
+              </button>
+              <button class="button" id="CyclingFail" style="display:none">
+                <div>Unfortunately, you have not completed the requirements.</div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container overflow-hidden">
+        <div class="row gx-5">
+          <h1 style="font-weight: bold; margin-bottom: 10px;" id="header">Let's Start Tracking!</h1>
+          <h5 style="margin-bottom: 50px;" id="header">Choose your level below:</h5>
+          <div class="col">
+                <div class="cardSection"  style="background-image: linear-gradient( rgb(255, 121, 121) , rgb(255, 255, 160));">
+                  <img src="Images\Running Man.svg" class="mainPageLogos" alt="Running Logo">
+                  <div class="container">
+                    <p class="poppins"><i class="bi bi-check-square" style="padding-right: 10px; padding-bottom: 20px;"></i>Complete</p>
+                    <h3 class="poppins"><b>Running</b></h3>
+                    <p class="poppins">Complete 10 km</p>
+                  </div>
+                </div>
+
+          </div>
+          <div class="col">
+              <div class="cardSection" style="background-image: linear-gradient( rgb(121, 255, 224) , rgb(160, 174, 255));">
+                <img src="Images\Cycling Man.svg" class="mainPageLogos" alt="Cycling Logo">
+                <div class="container">
+                  <p class="poppins"><i class="bi bi-check-square" style="padding-right: 10px; padding-bottom: 20px;"></i>Complete</p>
+                  <h3 class="poppins"><b>Cycling</b></h3>
+                  <p class="poppins">Complete 20 km</p>
+                </div>
+              </div>
+
+          </div>
+          <div class="col">
+              <div class="cardSection" style="background-image: linear-gradient( rgb(226, 121, 255) , rgb(255, 160, 166));">
+                <img src="Images\Weightlifting Woman.svg" class="mainPageLogos" alt="Weightlifting Logo">
+                <div class="container">
+                  <p class="poppins"><i class="bi bi-unlock" style="padding-right: 10px; padding-bottom: 20px;"></i>Unlocked</p>
+                  <h3 class="poppins"><b>Weightlifting</b></h3>
+                  <p class="poppins">Complete 5 hours</p>
+                </div>
+              </div>
+
+            </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Add the CDN link for the jQuery script here -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <!-- Add the CDN link for the DataTables script here -->
+  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+  <!-- Add the CDN link for Chart.js here -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Add the CDN link for the Tippy.js script here -->
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+
+  <script src="https://unpkg.com/tippy.js@6"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+  <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
+  <script src="Scripts/script.js"></script>
+
+</body>
+
+</html>
